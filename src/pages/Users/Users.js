@@ -75,20 +75,22 @@ function Users() {
                                 data && data.length === 0 ?
                                     <p>No officers were found</p>
                                     :
-                                    data.map((users, i) => {
-                                        return (
+                                    data
+                                        .filter((users) => users.userStatus === "approved")
+                                        .map((users, i) => {
+                                            return (
 
-                                            <UserCards setToggleAction={setToggleAction} toggleAction={toggleAction}
-                                                key={i}
-                                                id={users.userId}
-                                                name={users.userName}
-                                                mail={users.mail}
-                                                rank={users.userRank}
-                                                role={users.userRole}
-                                                date={users.joined}
-                                            />
-                                        )
-                                    })
+                                                <UserCards setToggleAction={setToggleAction} toggleAction={toggleAction}
+                                                    key={i}
+                                                    id={users.userId}
+                                                    name={users.userName}
+                                                    mail={users.mail}
+                                                    rank={users.userRank}
+                                                    role={users.userRole}
+                                                    date={users.joined}
+                                                />
+                                            )
+                                        })
                     }
                 </div>
             </MainCont>

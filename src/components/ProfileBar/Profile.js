@@ -70,7 +70,7 @@ function Profile() {
                             <br />
                             <br />
                             <p className="">{rank.toUpperCase()}</p>
-                            <p className="type">{role}</p>
+                            <p><kbd>{role}</kbd></p>
                         </div>
                         <br />
                         <div className="action">

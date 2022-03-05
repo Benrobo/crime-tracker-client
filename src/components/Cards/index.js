@@ -84,7 +84,7 @@ export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank,
     return (
         <div className="user-box">
             <div className="top">
-                <img src={navigator.connection.downlink > 1 ? `https://avatars.dicebear.com/api/micah/${name}.svg` : img} alt="" className="img" />
+                <img src={navigator.connection.downlink > 0.5 ? `https://avatars.dicebear.com/api/micah/${name}.svg` : img} alt="" className="img" />
                 <div className="more-cont">
                     <li data-id={id} onClick={async (e) => {
                         let target = e.target.dataset.id;
@@ -112,7 +112,7 @@ export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank,
                 <small>{mail}</small>
                 <div className="officer-type">
                     <div className="left">Type</div>
-                    <div className="right">{rank.toUpperCase()}</div>
+                    <div className="right">{rank.toUpperCase().length > 17 ? rank.toUpperCase().slice(0, 17) + "...." : rank.toUpperCase()}</div>
                 </div>
             </div>
             <div className="bottom">

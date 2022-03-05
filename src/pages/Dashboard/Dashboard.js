@@ -134,7 +134,7 @@ function Dashboard() {
                 <br />
                 <StatCards data={restData} />
                 <br />
-                <RequestContainer data={restData} handleTargetOfficerId={handleTargetOfficerId} />
+                {localData.role === "admin" && <RequestContainer data={restData} handleTargetOfficerId={handleTargetOfficerId} />}
                 {visibility && <Modal setVisibility={setVisibility}>
                     <RequestCard setVisibility={setVisibility} targetOfficerId={targetOfficerId} />
                 </Modal>}
