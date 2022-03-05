@@ -41,6 +41,15 @@
     height: auto;
     background: var(--dark2);
     border-right: 5px;
+    display:none;
+}
+
+.user-box .top .more-cont.show{
+    display: flex;
+}
+
+.user-box .top .more-cont.hide{
+    display: none;
 }
 
 .user-box .top .more-cont li{
@@ -112,16 +121,6 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-}
-
-.user-box .bottom .box:nth-child(1){
-    border-right: 1px solid #777;
-}
-
-
-
-.user-box .bottom .box.mid{
-    border-right: 1px solid #777;
 }
 
 .user-box .bottom .box h6{
