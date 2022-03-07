@@ -81,7 +81,6 @@ function AddSuspect() {
                 setCaseLoading(true);
                 let res = await fetch(url, options);
                 let data = await res.json();
-                console.log({ caseloading, data });
                 if (data && data.error === true) {
                     return notif.error(data.message);
                 }
@@ -184,7 +183,7 @@ function AddSuspect() {
                         ) : (
                             cases.map((list) => {
                                 return (
-                                    <option value={list.id}>{list.id}</option>
+                                    <option key={list.id} value={list.id}>{list.id}</option>
                                 )
                             })
                         )}

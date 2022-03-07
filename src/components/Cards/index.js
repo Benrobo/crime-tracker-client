@@ -15,7 +15,6 @@ export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank,
     const { localData } = useContext(DataContext)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
-    const [data, setData] = useState([]);
 
     function showMoreAction(e) {
         let parent = e.target.parentElement;
@@ -119,42 +118,6 @@ export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank,
                 <div className="box">
                     <small>Member since</small>
                     <h6>{date.split(",")[0]}</h6>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export function SuspectCards({ setToggleAction, toggleAction }) {
-
-    return (
-        <div className="user-box">
-            <div className="top">
-                <img src={img} alt="" className="img" />
-                {toggleAction && <div className="more-cont">
-                    <li>Delete</li>
-                </div>}
-                <br />
-                <FiMoreVertical className="icon" onClick={() => setToggleAction(!toggleAction)} />
-                <p className="name">John Doe</p>
-                <small>June 10, 2022</small>
-                <div className="officer-type">
-                    <div className="left">Case Id</div>
-                    <div className="right">2345454365346</div>
-                </div>
-            </div>
-            <div className="bottom">
-                <div className="box">
-                    <small>Physical Score</small>
-                    <h6>9/10</h6>
-                </div>
-                <div className="box mid">
-                    <small>Logical Score</small>
-                    <h6>5/10</h6>
-                </div>
-                <div className="box">
-                    <small>Probability</small>
-                    <h6>70%</h6>
                 </div>
             </div>
         </div>

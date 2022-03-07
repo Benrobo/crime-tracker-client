@@ -1,3 +1,107 @@
 input{
     text-transform: capitalize !important;
 }
+
+.suspect-info{
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+.suspects-card{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    background: var(--dark1);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid #7777772a;
+}
+.suspects-card:hover{
+    background: var(--dark3);
+}
+.suspects-card .left{
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.suspects-card .img{
+    width: 80px;
+    height: 80px;
+    background: var(--dark1);
+}
+
+.suspects-card .right{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.suspects-card .right div{
+    line-height: 50px;
+    font-style: italic;
+    opacity: .9;
+}
+
+/* suspect table*/
+
+
+.suspect-table{
+
+}
+
+.suspect-table table{
+    width: 100%;
+    position: relative;
+}
+
+.suspect-table .body thead{
+    width: 100%;
+    height: auto;
+    background: var(--dark1);
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.suspect-table .body thead th{
+    padding:10px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.suspect-table .body tbody tr td{
+   padding: 10px;
+}
+
+.suspect-table .body tbody tr .user-info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.suspect-table .body tbody tr .user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+.suspect-table .body tbody tr .action .icon{
+    padding: 8px;
+    font-size: 30px;
+}
+
+.suspect-table .body tbody tr .action .icon:hover{
+    color: var(--yel1);
+    background: var(--yel2);
+    opacity: .4;
+    cursor: pointer;
+}
