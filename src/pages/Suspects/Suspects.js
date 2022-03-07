@@ -183,7 +183,7 @@ function SuspectsTable({ suspectsData }) {
                     <thead>
                         <tr>
                             <th>Case Id</th>
-                            {/* <th>Evidence</th> */}
+                            <th>SuspectNumber</th>
                             <th>Suspect Name</th>
                             <th>Note</th>
                             <th>Rank</th>
@@ -198,9 +198,9 @@ function SuspectsTable({ suspectsData }) {
                                     <td>
                                         <small>{list.caseId}</small>
                                     </td>
-                                    {/* <td>
-                                        <small>Knife and Bottle</small>
-                                    </td> */}
+                                    <td>
+                                        <small>{list.phoneNumber}</small>
+                                    </td>
                                     <td>
                                         <small>{list.suspectName}</small>
                                     </td>
