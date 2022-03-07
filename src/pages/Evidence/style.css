@@ -123,18 +123,23 @@
 }
 
 .evidence-cont .body tbody tr .action .icon{
-    padding: 5px;
+    padding: 8px;
     font-size: 30px;
 }
 
 .evidence-cont .body tbody tr .action .icon:hover{
-    color: var(--yel1);
-    background: var(--yel2);
     opacity: .4;
     cursor: pointer;
 }
+.evidence-cont .body tbody tr .action .icon.delete{
+    color: var(--red1);
+    background: var(--red2);
+}
 
-
+.evidence-cont .body tbody tr .action .icon.edit{
+    color: var(--yel1);
+    background: var(--yel2);
+}
 
 /* Add Evidence container */
 .addevidence-cont{
