@@ -25,9 +25,11 @@ const apiRoutes = {
     deleteSuspects: `${protocol}//localhost:5000/api/suspects/delete`,
     allEvidence: `${protocol}//localhost:5000/api/evidence/all`,
     getEvidenceId: `${protocol}//localhost:5000/api/evidence/id`,
+    getEvidenceById: `${protocol}//localhost:5000/api/evidence/byId`,
     addEvidence: `${protocol}//localhost:5000/api/evidence/add`,
     editEvidence: `${protocol}//localhost:5000/api/evidence/edit`,
     deleteEvidence: `${protocol}//localhost:5000/api/evidence/delete`,
+    clearAllEvidence: `${protocol}//localhost:5000/api/evidence/deleteAll`,
 }
 
 export default apiRoutes

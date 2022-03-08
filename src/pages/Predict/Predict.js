@@ -32,7 +32,7 @@ function AddCases() {
     const [suspectloading, setAddingSuspectLoading] = useState(false);
     const [predictionloading, setPredictionLoading] = useState(false);
     const [cases, setCases] = useState([]);
-    const [suspects, setSuspects] = useState({});
+    const [suspects, setSuspects] = useState([]);
     const [suspectid, setSuspectId] = useState("")
     const [error, setError] = useState("");
     const [caseid, setCaseId] = useState("");
@@ -99,8 +99,8 @@ function AddCases() {
             console.log(data.data);
 
             setAddingSuspectLoading(false);
-            setSuspects(data.data[0]);
-            setSuspectId(data.data[0].id)
+            setSuspects(data.data.length > 0 ? data.data[0] : data.data);
+            setSuspectId(data.data.length > 0 ? data.data[0].id : data.data)
         } catch (err) {
             setAddingSuspectLoading(false);
             setError(err.message);
@@ -204,7 +204,7 @@ function AddCases() {
                         type="text"
                         ref={caseRef}
                         disabled
-                        defaultValue={suspectloading ? "loading..." : suspectDataLength.length === 0 ? "" : suspects.caseName}
+                        defaultValue={suspectloading ? "loading..." : suspects.length === 0 ? "" : suspects && Object.entries(suspects).length === 0 ? "No suspect availabele for this case" : suspects.caseName}
                         className="input"
                     />
                 </div>
@@ -213,7 +213,7 @@ function AddCases() {
                     <input
                         type="text"
                         ref={suspectRef}
-                        defaultValue={suspectloading ? "loading..." : suspectDataLength.length === 0 ? "" : suspects.suspectName}
+                        defaultValue={suspectloading ? "loading..." : suspects.length === 0 ? "" : suspects && Object.entries(suspects).length === 0 ? "No suspect availabele for this case" : suspects.suspectName}
                         disabled
                         className="input"
                     />
@@ -223,7 +223,7 @@ function AddCases() {
                     <input
                         type="text"
                         ref={relRef}
-                        defaultValue={suspectloading ? "loading..." : suspectDataLength.length === 0 ? "" : suspects.relation}
+                        defaultValue={suspectloading ? "loading..." : suspects.length === 0 ? "" : suspects && Object.entries(suspects).length === 0 ? "No suspect availabele for this case" : suspects.relation}
                         disabled
                         className="input"
                     />
@@ -256,7 +256,7 @@ function AddCases() {
                         </div>
                         <div className="right">
                             <img
-                                src={suspectDataLength.length === 0 ? "" : suspects.suspectImg}
+                                src={suspects.length === 0 ? "" : suspects && Object.entries(suspects).length === 0 ? "" : suspects.suspectImg}
                                 alt=""
                                 className="preview"
                             />

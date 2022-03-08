@@ -1,0 +1,35 @@
+.notfound{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: var(--dark1);
+}
+
+.notfound h4 .tbt{
+    color: var(--yel1);
+    font-weight: 900;
+}
+
+.notfound .img{
+    width: 20%;
+}
+
+.notfound .home{
+    padding: 10px 30px;
+    background: var(--dark2);
+    color: var(--yel1);
+    border: 2px solid var(--yel1);
+    cursor: pointer;
+    transition: .2s ease;
+    transform: scale(.95);
+    border-radius: 10px;
+}
+
+.notfound .home:hover{
+    transition: .2s ease-in;
+    transform: scale(.98);
+}

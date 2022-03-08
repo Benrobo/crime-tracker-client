@@ -10,6 +10,7 @@ import apiRoutes from '../../api_routes'
 import DataContext from '../../context/DataContext'
 
 import "./style.css"
+import { useParams } from 'react-router'
 
 const util = new Util();
 const notif = new Notification()
@@ -27,6 +28,29 @@ function Dashboard() {
 
     // targeted officerId
     const [targetOfficerId, setTargetOfficerId] = useState("")
+
+    // get userid
+    const param = useParams()
+
+    function validateUser() {
+        if (Object.entries(param).length > 0) {
+            let { id } = param;
+            if (id !== localData.id) {
+                window.location = `http://localhost:3000/notfound/${localData.id}`
+            }
+
+            // check user role
+            let localRole = localData.role;
+
+            (async () => {
+
+            })()
+        }
+        else {
+            window.location = `http://localhost:3000/officer/dashboard/${localData.id}`
+        }
+    }
+    validateUser()
 
 
     useEffect(() => {

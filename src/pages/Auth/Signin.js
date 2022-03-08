@@ -12,6 +12,7 @@ const util = new Util();
 export default function Signin() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false)
 
     function handleClick() {
         if (password === "") {
@@ -33,6 +34,7 @@ export default function Signin() {
         async function signinUser() {
             const url = apiRoutes.logIn;
             try {
+                setLoading(true)
                 let req = await fetch(url, {
                     method: "post",
                     headers: {
@@ -41,6 +43,8 @@ export default function Signin() {
                     body: JSON.stringify(userData),
                 });
                 let res = await req.json();
+
+                setLoading(false)
 
                 if (req.status !== 200 && res.error === true) {
                     return notif.error(res.message);
@@ -67,6 +71,7 @@ export default function Signin() {
                 util.redirect(`/officer/dashboard/${id}`, 1500);
                 return;
             } catch (e) {
+                setLoading(false)
                 notif.error(e.message);
             }
         }
@@ -105,7 +110,7 @@ export default function Signin() {
                                 }}
                             />
                             <SuccessBtn
-                                text="Sign In"
+                                text={loading ? "Siging you in ..." : "Sign In"}
                                 onClick={handleClick}
                                 className={"btn-block success"}
                             />

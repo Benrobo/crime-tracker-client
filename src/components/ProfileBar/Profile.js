@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect, useLayoutEffect } from 'react'
 import { HiOutlineCog } from 'react-icons/hi'
-import { FiEdit } from 'react-icons/fi'
+import { FiEdit, FiLock } from 'react-icons/fi'
 import DataContext from '../../context/DataContext'
 import { Util } from '../../helpers/util'
 import apiRoutes from '../../api_routes'
@@ -76,6 +76,11 @@ function Profile() {
                         <div className="action">
                             {/* <HiOutlineCog className="icon" /> */}
                             <FiEdit className="icon" onClick={() => setShowEditProfile(!showeditprofile)} />
+
+                            <FiLock className="icon" onClick={() => {
+                                localStorage.clear()
+                                window.location.reload(true)
+                            }} />
                         </div>
                     </>
                     :

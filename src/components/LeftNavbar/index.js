@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
 import { AiOutlineDashboard, AiOutlineWarning } from 'react-icons/ai'
@@ -6,9 +6,13 @@ import { RiErrorWarningLine } from 'react-icons/ri'
 import { FiUsers } from 'react-icons/fi'
 import { IoIosStats } from 'react-icons/io'
 import { TiZoomOutline } from 'react-icons/ti'
-
+import DataContext from "../../context/DataContext";
 
 function LeftNavbar({ active }) {
+    const { localData } = useContext(DataContext)
+
+
+
     return (
         <div className="left-navbar-container">
             <div className="head">
@@ -16,7 +20,7 @@ function LeftNavbar({ active }) {
             </div>
             <br />
             <div className="list-cont">
-                <Link to="/officer/dashboard/sdcc" className={active === "dashboard" ? "link active" : "link"}>
+                <Link to={`/officer/dashboard/${localData.id}`} className={active === "dashboard" ? "link active" : "link"}>
                     <AiOutlineDashboard className="icon" />
                     Dashboard
                 </Link>

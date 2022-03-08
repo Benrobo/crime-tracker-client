@@ -8,6 +8,7 @@ import Layout from '../../components/Layout/Layout'
 import apiRoutes from "../../api_routes"
 import DataContext from "../../context/DataContext"
 import { Util, Notification } from "../../helpers/util"
+import { useParams } from 'react-router'
 
 const util = new Util()
 const notif = new Notification(4000)
@@ -43,7 +44,6 @@ function AddEvidenceForm() {
     const [note, setNote] = useState("")
     const [suspectId, setSuspectId] = useState("")
 
-
     // get cases data
     useEffect(() => {
         (async () => {
@@ -60,7 +60,6 @@ function AddEvidenceForm() {
                 setCaseLoading(true)
                 let res = await fetch(url, options);
                 let data = await res.json();
-                console.log(data);
                 if (data && data.error === true) {
                     console.error(data.message);
                     return notif.error(data.message)
@@ -89,7 +88,6 @@ function AddEvidenceForm() {
                 setSuspectLoading(true)
                 let res = await fetch(url, options);
                 let data = await res.json();
-                console.log(data);
                 if (data && data.error === true) {
                     return notif.error(data.message)
                 }
@@ -210,7 +208,7 @@ function AddEvidenceForm() {
                                     :
                                     suspectsdata.map((list) => {
                                         return (
-                                            <option key={list.id} value={list.id}>{list.suspectName}</option>
+                                            <option key={list.id} value={list.id}>{list.suspectName} C-ID: {list.caseId}</option>
                                         )
                                     })
                         }

@@ -16,6 +16,7 @@ import { Util } from "./helpers/util"
 import { DataContextProvider } from './context/DataContext';
 import AddSuspects from './pages/Suspects/AddSuspects';
 import ViewPredictions from './pages/Predict/ViewPredictions';
+import Notfound from './pages/Notfound/Notfound';
 
 const util = new Util();
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/officer/suspects" element={util.isLoggedIn() ? <Suspects /> : <SignIn />} />
           <Route path="/officer/evidence" element={util.isLoggedIn() ? <Evidence /> : <SignIn />} />
           <Route path="/officer/addEvidence" element={util.isLoggedIn() ? <AddEvidence /> : <SignIn />} />
+          <Route path="*" element={util.isLoggedIn() ? <Notfound /> : <SignIn />} />
         </Routes>
       </Router>
     </DataContextProvider>
