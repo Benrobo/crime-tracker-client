@@ -26,15 +26,13 @@ function LeftNavbar({ active }) {
                     <AiOutlineDashboard className="icon" />
                     Dashboard
                 </Link>
-                {(localData.role === "admin" && decodedLocalData.role === "admin") && (
-                    <Link
-                        to="/officer/cases"
-                        className={active === "cases" ? "link active" : "link"}
-                    >
-                        <RiErrorWarningLine className="icon" />
-                        Cases
-                    </Link>
-                )}
+                <Link
+                    to="/officer/cases"
+                    className={active === "cases" ? "link active" : "link"}
+                >
+                    <RiErrorWarningLine className="icon" />
+                    Cases
+                </Link>
                 <Link
                     to="/officer/users"
                     className={active === "users" ? "link active" : "link"}
