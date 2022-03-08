@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./style.css";
-import { AiOutlineDashboard, AiOutlineWarning } from 'react-icons/ai'
-import { RiErrorWarningLine } from 'react-icons/ri'
-import { FiUsers } from 'react-icons/fi'
-import { IoIosStats } from 'react-icons/io'
-import { TiZoomOutline } from 'react-icons/ti'
+import { AiOutlineDashboard, AiOutlineUserSwitch, AiOutlineWarning } from "react-icons/ai";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { FiUsers } from "react-icons/fi";
+import { IoIosStats } from "react-icons/io";
+import { TiZoomOutline } from "react-icons/ti";
 import DataContext from "../../context/DataContext";
 
+
 function LeftNavbar({ active }) {
-    const { localData } = useContext(DataContext)
-
-
+    const { localData, decodedLocalData } = useContext(DataContext);
 
     return (
         <div className="left-navbar-container">
@@ -20,39 +19,61 @@ function LeftNavbar({ active }) {
             </div>
             <br />
             <div className="list-cont">
-                <Link to={`/officer/dashboard/${localData.id}`} className={active === "dashboard" ? "link active" : "link"}>
+                <Link
+                    to={`/officer/dashboard/${localData.id}`}
+                    className={active === "dashboard" ? "link active" : "link"}
+                >
                     <AiOutlineDashboard className="icon" />
                     Dashboard
                 </Link>
-                <Link to="/officer/cases" className={active === "cases" ? "link active" : "link"}>
-                    <RiErrorWarningLine className="icon" />
-                    Cases
-                </Link>
-                <Link to="/officer/users" className={active === "users" ? "link active" : "link"}>
+                {(localData.role === "admin" && decodedLocalData.role === "admin") && (
+                    <Link
+                        to="/officer/cases"
+                        className={active === "cases" ? "link active" : "link"}
+                    >
+                        <RiErrorWarningLine className="icon" />
+                        Cases
+                    </Link>
+                )}
+                <Link
+                    to="/officer/users"
+                    className={active === "users" ? "link active" : "link"}
+                >
                     <FiUsers className="icon" />
                     Users
                 </Link>
-                <Link to="/officer/predict" className={active === "predict" ? "link active" : "link"}>
+                <Link
+                    to="/officer/predict"
+                    className={active === "predict" ? "link active" : "link"}
+                >
                     <IoIosStats className="icon" />
                     Predict
                 </Link>
-                <Link to="/officer/viewPredictions" className={active === "viewPredictions" ? "link active" : "link"}>
-                    <AiOutlineWarning className="icon" />
-                    View Predictions
-                </Link>
-                <Link to="/officer/suspects/add" className={active === "addSuspects" ? "link active" : "link"}>
-                    <AiOutlineWarning className="icon" />
+                <Link
+                    to="/officer/suspects/add"
+                    className={active === "addSuspects" ? "link active" : "link"}
+                >
+                    <AiOutlineUserSwitch className="icon" />
                     Add Suspects
                 </Link>
-                <Link to="/officer/suspects" className={active === "suspects" ? "link active" : "link"}>
+                <Link
+                    to="/officer/suspects"
+                    className={active === "suspects" ? "link active" : "link"}
+                >
                     <AiOutlineWarning className="icon" />
                     View Suspects
                 </Link>
-                <Link to="/officer/addEvidence" className={active === "addEvidence" ? "link active" : "link"}>
+                <Link
+                    to="/officer/addEvidence"
+                    className={active === "addEvidence" ? "link active" : "link"}
+                >
                     <RiErrorWarningLine className="icon" />
                     Add Evidence
                 </Link>
-                <Link to="/officer/evidence" className={active === "evidence" ? "link active" : "link"}>
+                <Link
+                    to="/officer/evidence"
+                    className={active === "evidence" ? "link active" : "link"}
+                >
                     <TiZoomOutline className="icon" />
                     Evidence
                 </Link>

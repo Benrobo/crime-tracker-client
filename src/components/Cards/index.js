@@ -12,7 +12,8 @@ const notif = new Notification();
 
 export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank, role, date }) {
 
-    const { localData } = useContext(DataContext)
+
+    const { localData, decodedLocalData } = useContext(DataContext)
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
 
@@ -107,7 +108,7 @@ export function UserCards({ setToggleAction, toggleAction, id, name, mail, rank,
                             :
                             ""
                 }
-                <p className="name">{name} {id === localData.id ? (<kbd>you</kbd>) : (<kbd>others</kbd>)}</p>
+                <p className="name">{name} {id === decodedLocalData.id ? (<kbd>you</kbd>) : (<kbd>others</kbd>)}</p>
                 <small>{mail}</small>
                 <div className="officer-type">
                     <div className="left">Type</div>

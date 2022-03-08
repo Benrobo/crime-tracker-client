@@ -17,6 +17,14 @@ export function DataContextProvider(props) {
     const decodedLocalData = util.getLocalstorageData();
     const localData = JSON.parse(localStorage.getItem("crime-tracker"))
 
+    // validat5e userid
+    if (util.isLoggedIn()) {
+        if ((decodedLocalData.id !== localData.id) || (decodedLocalData.role !== localData.role)) {
+            localStorage.clear()
+            window.location.reload(true)
+        }
+    }
+
     //   togle profile edit container
     const [showeditprofile, setShowEditProfile] = useState(false)
 

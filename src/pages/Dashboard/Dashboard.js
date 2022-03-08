@@ -35,16 +35,9 @@ function Dashboard() {
     function validateUser() {
         if (Object.entries(param).length > 0) {
             let { id } = param;
-            if (id !== localData.id) {
+            if ((id !== localData.id) || (id !== decodedLocalData.id)) {
                 window.location = `http://localhost:3000/notfound/${localData.id}`
             }
-
-            // check user role
-            let localRole = localData.role;
-
-            (async () => {
-
-            })()
         }
         else {
             window.location = `http://localhost:3000/officer/dashboard/${localData.id}`

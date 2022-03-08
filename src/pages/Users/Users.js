@@ -14,7 +14,7 @@ const util = new Util();
 const notif = new Notification();
 
 function Users() {
-    const { localData } = useContext(DataContext);
+    const { localData, decodedLocalData } = useContext(DataContext);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [data, setData] = useState([]);
@@ -78,6 +78,7 @@ function Users() {
                                     data
                                         .filter((users) => users.userStatus === "approved")
                                         .map((users, i) => {
+                                            console.log(users);
                                             return (
 
                                                 <UserCards setToggleAction={setToggleAction} toggleAction={toggleAction}
