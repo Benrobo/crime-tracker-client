@@ -6,7 +6,6 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import "./global.css";
 import Cases, { ViewAllCases } from "./pages/Cases/Cases";
 import Users from "./pages/Users/Users";
-import Predict from "./pages/Predict/Predict";
 import Suspects from "./pages/Suspects/Suspects";
 import Evidence from "./pages/Evidence/Evidence";
 import AddEvidence from "./pages/Evidence/AddEvidence";
@@ -54,10 +53,6 @@ function App() {
           <Route
             path="/officer/users"
             element={util.isLoggedIn() ? <Users /> : <SignIn />}
-          />
-          <Route
-            path="/officer/predict"
-            element={util.isLoggedIn() ? <Predict /> : <SignIn />}
           />
           <Route
             path="/officer/suspects/add"

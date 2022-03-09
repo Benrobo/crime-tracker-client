@@ -241,7 +241,7 @@ function EvidenceTable({ data, loading, setSelectedCaseId, setSelectedEvidenceId
                         <th>Case Id</th>
                         <th>Evidence</th>
                         <th>Suspect Name</th>
-                        {/* <th>Relation</th> */}
+                        <th>Relation</th>
                         <th>Note</th>
                         <th>Rank</th>
                         <th>Officer Id</th>
@@ -259,9 +259,9 @@ function EvidenceTable({ data, loading, setSelectedCaseId, setSelectedEvidenceId
                                             <td>
                                                 <small>{list.evidence}</small>
                                             </td>
-                                            {/* <td>
+                                            <td>
                                                 <small>{list.relation}</small>
-                                            </td> */}
+                                            </td>
                                             <td>
                                                 <small>{list.suspectName}</small>
                                             </td>

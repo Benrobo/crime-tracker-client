@@ -144,30 +144,13 @@
     color: var(--yel1);
 }
 
-/* predict */
-.box-cont.predict{
-    padding: 12px;
-    position: absolute;
-    height: auto;
-    left: 200px;
-    top: 160px;
-    font-size: 20px;
-}
-
-.box-cont.predict .icon{
-    position: absolute;
-    left: -38px;
-    font-size: 40px;
-    color: var(--yel1);
-}
-
 /* addsuspects */
 .box-cont.addSuspects{
     padding: 12px;
     position: absolute;
     height: auto;
     left: 200px;
-    top: 210px;
+    top: 170px;
     font-size: 20px;
 }
 
@@ -184,7 +167,7 @@
     position: absolute;
     height: auto;
     left: 200px;
-    top: 282px;
+    top: 242px;
     font-size: 20px;
 }
 
@@ -202,7 +185,7 @@
     position: absolute;
     height: auto;
     left: 200px;
-    top: 290px;
+    top: 260px;
     font-size: 20px;
 }
 
@@ -220,7 +203,7 @@
     position: absolute;
     height: auto;
     left: 200px;
-    top: 370px;
+    top: 320px;
     font-size: 20px;
 }
 

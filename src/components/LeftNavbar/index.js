@@ -48,13 +48,6 @@ function LeftNavbar({ active }) {
                     Users
                 </Link>
                 <Link
-                    to="/officer/predict"
-                    className={active === "predict" ? "link active" : "link"}
-                >
-                    <IoIosStats className="icon" />
-                    Predict
-                </Link>
-                <Link
                     to="/officer/suspects/add"
                     className={active === "addSuspects" ? "link active" : "link"}
                 >

@@ -41,6 +41,7 @@ function AddSuspect() {
     const [relation, setRelation] = useState("")
     const [note, setNote] = useState("");
     const [imageData, setImageData] = useState("");
+    const [rank, setRank] = useState("")
     const file = useRef();
 
     function handlePreview() {
@@ -118,6 +119,9 @@ function AddSuspect() {
         if (imageData === "") {
             return notif.error("suspect image is empty")
         }
+        if (rank === "") {
+            return notif.error("suspect rank is empty")
+        }
 
         let sendData = {
             userId: localData.id,
@@ -127,7 +131,8 @@ function AddSuspect() {
             address: addr,
             relation,
             note,
-            suspectImg: imageData
+            suspectImg: imageData,
+            rank
         }
 
         try {
@@ -162,7 +167,7 @@ function AddSuspect() {
     }
 
     return (
-        <div className="predict-cont">
+        <div className="suspect-cont">
             <div className="head">
                 <h3>Add Suspects</h3>
             </div>
@@ -252,6 +257,21 @@ function AddSuspect() {
                                     className="file"
                                     ref={file}
                                 />
+                            </div>
+                            <div className="bx">
+                                <label htmlFor="">Logical Prediction</label>
+                                <select className="select" onChange={(e) => {
+                                    setRank(e.target.value)
+                                }}>
+                                    <option value={""}>1/10</option>
+                                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, i) => {
+                                        return (
+                                            <option key={i} value={i}>
+                                                {i}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
                             </div>
                         </div>
                         <div className="right">

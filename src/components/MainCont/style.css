@@ -33,7 +33,7 @@
 }
 
 .cards-container .card-box{
-    width: 200px;
+    width:250px;
     height: auto;
     padding: 20px;
     background: var(--dark1);

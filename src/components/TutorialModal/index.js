@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import img from "../../assets/img/angry.png"
 import "./style.css"
-
-import { FaArrowLeft, FaArrowRight, FaArrowUp, FaArrowDown } from "react-icons/fa"
+import DataContext from '../../context/DataContext'
+import { FaArrowLeft, FaArrowRight, FaArrowUp } from "react-icons/fa"
 
 function Tutorial() {
+    const { localData, decodedLocalData } = useContext(DataContext)
     const [steps, setSteps] = useState(1);
 
     let tutorialBox;
@@ -37,30 +38,27 @@ function Tutorial() {
         tutorialBox = <AddSuspects setSteps={setSteps} />
     }
     if (steps === 7) {
-        tutorialBox = <Predict setSteps={setSteps} />
-    }
-    if (steps === 8) {
         tutorialBox = <AddEvidence setSteps={setSteps} />
     }
-    if (steps === 9) {
+    if (steps === 8) {
         tutorialBox = <ViewSuspects setSteps={setSteps} />
     }
-    if (steps === 10) {
+    if (steps === 9) {
         tutorialBox = <ViewEvidence setSteps={setSteps} />
     }
-    if (steps === 11) {
+    if (steps === 10) {
         tutorialBox = <ProfileTab setSteps={setSteps} />
     }
-    if (steps === 12) {
+    if (steps === 11) {
         tutorialBox = <EditProfileInfo setSteps={setSteps} />
     }
-    if (steps === 13) {
+    if (steps === 12) {
         tutorialBox = <Logout setSteps={setSteps} />
     }
-    if (steps === 14) {
-        tutorialBox = <IncomingRequest setSteps={setSteps} />
+    if (steps === 13) {
+        tutorialBox = localData.role === decodedLocalData.role && decodedLocalData.role === "admin" ? <IncomingRequest setSteps={setSteps} /> : ""
     }
-    if (steps === 15) {
+    if (steps === 14) {
         tutorialBox = <OutTro setSteps={setSteps} />
     }
 
@@ -147,27 +145,12 @@ function Users({ setSteps }) {
     )
 }
 
-function Predict({ setSteps }) {
-
-    return (
-        <div className='box-cont predict'>
-            <p>Add prediction for <kbd>SUSPECTS</kbd> added..</p>
-            <small>This should be done when suspect has been added for a particular <kbd>case</kbd>.</small>
-            <br />
-            <FaArrowLeft className='icon' />
-            <button className="next btn" onClick={() => {
-                setSteps((prev) => prev += 1)
-            }}>Next Step</button>
-        </div>
-    )
-}
-
 function AddSuspects({ setSteps }) {
 
     return (
         <div className='box-cont addSuspects'>
             <p>Add suspects for a case..</p>
-            <small>This should be done next as soon as a case is created, before prediction take place.</small>
+            <small>This should be done next as soon as a case is created, before evidence take place.</small>
             <br />
             <FaArrowLeft className='icon' />
             <button className="next btn" onClick={() => {
@@ -195,8 +178,8 @@ function AddEvidence({ setSteps }) {
 
     return (
         <div className='box-cont addEvidence'>
-            <p>Add Evidence for both <kbd>suspects</kbd> & <kbd>prediction</kbd> ..</p>
-            <small>This should be created as when both <kbd>Suspects</kbd> and <kbd>Prediction</kbd> has been taking place. </small>
+            <p>Add Evidence for <kbd>suspects</kbd>..</p>
+            <small>This should be created as when <kbd>Suspects</kbd> creation and prediction has been taking place. </small>
             <br />
             <FaArrowLeft className='icon' />
             <button className="next btn" onClick={() => {
@@ -249,6 +232,7 @@ function EditProfileInfo({ setSteps }) {
 }
 
 function Logout({ setSteps }) {
+    const { localData, decodedLocalData } = useContext(DataContext)
 
     return (
         <div className='box-cont logout'>
@@ -256,7 +240,10 @@ function Logout({ setSteps }) {
             <br />
             <FaArrowRight className='icon' />
             <button className="next btn" onClick={() => {
-                setSteps((prev) => prev += 1)
+                if (localData.role === decodedLocalData.role && decodedLocalData.role === "admin") {
+                    return setSteps((prev) => prev += 1)
+                }
+                setSteps((prev) => prev += 2)
             }}>Next Step</button>
         </div>
     )
