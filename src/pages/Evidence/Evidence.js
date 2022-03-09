@@ -300,7 +300,7 @@ function EvidenceTable({ data, loading, setSelectedCaseId, setSelectedEvidenceId
                                     )
                                 })
                                 :
-                                <small>Evidence is empty</small>
+                                <small>No Evidence Found for that case.</small>
                             :
                             <tr>
                                 <td>loading...</td>
