@@ -144,8 +144,6 @@ function AddSuspect() {
             let res = await fetch(url, options);
             let data = await res.json();
 
-            console.log(data);
-
             if (data && data.error === true) {
                 setAddingSuspectLoading(false)
                 return notif.error(data.message);

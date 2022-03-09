@@ -96,8 +96,6 @@ function AddCases() {
                 return notif.error(data.message);
             }
 
-            console.log(data.data);
-
             setAddingSuspectLoading(false);
             setSuspects(data.data.length > 0 ? data.data[0] : data.data);
             setSuspectId(data.data.length > 0 ? data.data[0].id : data.data)
@@ -107,7 +105,6 @@ function AddCases() {
             notif.error(err.message);
         }
 
-        console.log(suspects);
     }
 
     // add predictions

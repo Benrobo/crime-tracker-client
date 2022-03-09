@@ -74,7 +74,6 @@ export function UserSignUp() {
         userData["password"] = password;
         userData["rank"] = officerranks;
 
-        // return console.log(apiRoutes.userAuth);
         async function signinUser() {
             const url = apiRoutes.userAuth;
             try {
@@ -227,7 +226,6 @@ export function AdminSignUp() {
         userData["password"] = password;
         userData["rank"] = officerranks;
 
-        // return console.log(apiRoutes.userAuth);
         async function signinUser() {
             const url = apiRoutes.adminAuth;
             try {

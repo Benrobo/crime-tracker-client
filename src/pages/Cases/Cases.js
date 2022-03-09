@@ -211,7 +211,6 @@ function AddCases() {
                         onChange={(e) => {
                             getOfficers(e.target.value);
                             setOfficerId(e.target.value);
-                            console.log({ officerid: e.target.value });
                         }}
                     >
                         <option value="">
@@ -436,7 +435,6 @@ export function ViewAllCases() {
                                                                         setCaseTargetId(Cid);
                                                                         setOfficerTargetId(Oid);
                                                                         setEditState(true);
-                                                                        console.log(target, editstate);
                                                                     }
                                                                 }}
                                                             />
@@ -702,7 +700,6 @@ function UpdateCases({ caseId, officerId, setEditState }) {
                         onChange={(e) => {
                             getOfficers(e.target.value);
                             setOfficerId(e.target.value);
-                            console.log({ officerid: e.target.value });
                         }}
                     >
                         <option value="">

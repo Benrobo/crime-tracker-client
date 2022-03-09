@@ -44,7 +44,6 @@ function EditProfile() {
                     setUserData([])
                     return
                 }
-                console.log(data);
                 setFetchLoading(false);
                 let rs = data.data[0];
                 setName(rs.userName)

@@ -78,7 +78,6 @@ function Users() {
                                     data
                                         .filter((users) => users.userStatus === "approved")
                                         .map((users, i) => {
-                                            console.log(users);
                                             return (
 
                                                 <UserCards setToggleAction={setToggleAction} toggleAction={toggleAction}

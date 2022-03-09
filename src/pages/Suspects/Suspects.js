@@ -42,7 +42,6 @@ function Suspects() {
                     console.error(data.message);
                     return notif.error(data.message)
                 }
-                console.log(data);
                 setCaseLoading(false);
                 setCasesData(data.data)
 

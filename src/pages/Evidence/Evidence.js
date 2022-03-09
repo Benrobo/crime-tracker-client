@@ -76,7 +76,6 @@ function Evidence() {
             setEvidenceLoading(true)
             let res = await fetch(url, options);
             let data = await res.json();
-            console.log(data);
             if (data && data.error === true) {
                 console.error(data.message);
                 return notif.error(data.message)
@@ -468,7 +467,6 @@ function UpdateEvidence({ selectedevidenceid, selectedcaseid, setEditState, sele
             setEvidenceLoading(true)
             let res = await fetch(url, options);
             let data = await res.json();
-            console.log(data);
             if (data && data.error === true) {
                 setEvidenceLoading(false)
                 return notif.error(data.message)
