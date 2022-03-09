@@ -1,4 +1,5 @@
 import React, { createContext, useState } from "react";
+import Tutorial from "../components/TutorialModal";
 
 import { Util } from "../helpers/util";
 
@@ -37,6 +38,7 @@ export function DataContextProvider(props) {
     return (
         <DataContext.Provider value={{ logout, decodedLocalData, localData, showeditprofile, setShowEditProfile }}>
             {props.children}
+            {util.isLoggedIn() ? <Tutorial /> : ""}
         </DataContext.Provider>
     );
 }

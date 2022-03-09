@@ -113,3 +113,91 @@
 .cases-cont .form-cont .action .add{
     background: var(--dark1);
 }
+
+/* view cases table */
+.view-cases .head .head-action{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.view-cases .head .head-action .icon{
+    padding: 8px;
+    font-size: 28px;
+    background: var(--red2);
+    color: var(--red1);
+    margin-left: 10px;
+    border-radius: 10%;
+    cursor: pointer;
+    opacity: .7;
+}
+
+.view-cases .head .head-action .icon:hover{
+    opacity: 1;
+
+}
+
+.view-cases .body table{
+    width: 100%;
+    position: relative;
+}
+
+.view-cases .body thead{
+    width: 100%;
+    height: auto;
+    background: var(--dark1);
+    font-weight: 300;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.view-cases .body thead th{
+    padding:10px;
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.view-cases .body tbody tr td{
+   padding: 10px;
+}
+.view-cases .body tbody tr td .bdg{
+    padding: 2px 10px;
+    background: var(--yel2);
+    color: var(--yel1);
+    border-radius: 30px;
+}
+.view-cases .body tbody tr td{
+    font-size: 13px;
+    
+}
+.view-cases .body tbody tr .user-info{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.view-cases .body tbody tr .user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+.view-cases .body tbody tr .action .icon{
+    padding: 10px;
+    font-size: 30px;
+}
+
+.view-cases .body tbody tr .action .icon:hover{
+    opacity: .4;
+    cursor: pointer;
+}
+.view-cases .body tbody tr .action .icon.delete{
+    color: var(--red1);
+    background: var(--red2);
+}
+
+.view-cases .body tbody tr .action .icon.edit{
+    color: var(--yel1);
+    background: var(--yel2);
+}
+
+

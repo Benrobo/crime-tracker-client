@@ -27,11 +27,18 @@ function LeftNavbar({ active }) {
                     Dashboard
                 </Link>
                 <Link
-                    to="/officer/cases"
-                    className={active === "cases" ? "link active" : "link"}
+                    to="/officer/assignCase"
+                    className={active === "assignCase" ? "link active" : "link"}
                 >
                     <RiErrorWarningLine className="icon" />
-                    Cases
+                    Assign Case
+                </Link>
+                <Link
+                    to="/officer/viewCase"
+                    className={active === "viewCase" ? "link active" : "link"}
+                >
+                    <RiErrorWarningLine className="icon" />
+                    View Case
                 </Link>
                 <Link
                     to="/officer/users"
